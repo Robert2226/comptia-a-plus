@@ -1,56 +1,47 @@
-# [Week X] Lab Recap
+
 
 ## Objective
-[What this week's lab covers.]
+This week focused on deepening understanding of system-level security controls and malware prevention techniques on macOS, using both CLI and GUI tools. Emphasis was placed on user access control, password policies, and native anti-malware protections.
 
 ## Tools Used
 - Terminal
 - VS Code
 - macOS
 
-## Commands Used
-```bash
-# command examples here
+# Week 4 Recap – Security Labs Part 2
 
-🧠 Explanation:
-- You’ll replace `[Week X]`, `[What this week’s lab covers]`, and other placeholders each time you create a new week.
-- The code block is wrapped with triple backticks (` ```bash ` and ` ``` `) so you don’t forget!
-
-Save and exit:
-- `Ctrl + O`, `Enter`
-- `Ctrl + X`
-
-✅ Now your Markdown template is ready.
+## Objective
+This week focused on deepening understanding of system-level security controls and malware prevention techniques on macOS, using both CLI and GUI tools. Emphasis was placed on user access control, password policies, and native anti-malware protections.
 
 ---
 
-## ✅ Step 3.3: Create the Scaffolding Script
+## Labs Completed
 
-This is the **automated script** that copies your template and sets up folders for new labs.
+### ✅ Lab 1: User Accounts & Permissions
+- Used `id`, `groups`, and `dscl` to explore user and group metadata in macOS
+- Compared CLI results to GUI view in **System Settings > Users & Groups**
+- Captured and stored GUI screenshot for documentation
 
-### Run:
+### ✅ Lab 2: Password Policies & Expiration
+- Ran `passwd` to test password change requirements
+- Explored macOS GUI password management
+- Discussed common enterprise password policy settings and their role in endpoint security
 
-```bash
-nano new-week.sh
-#!/bin/bash
+### ✅ Lab 3: macOS Anti-Malware
+- Verified **Gatekeeper** status via `spctl --status`
+- Documented behavior when opening unsigned apps (Gatekeeper GUI prompt)
+- Investigated **XProtect** malware definitions and update logs via `system_profiler`
+- Confirmed **MRT (Malware Removal Tool)** history using `MRTConfigData` in system update records
+- Reviewed the definitions and types of malware (viruses, trojans, spyware, etc.) and how macOS mitigates them
 
-# Check if user passed a week name
-if [ -z "$1" ]; then
-  echo "❌ Please provide a week name (e.g., Week4)"
-  exit 1
-fi
+---
 
-# Set variable for the week
-WEEK_NAME=$1
+## Reflections
+- macOS includes strong native tools for threat prevention without third-party antivirus
+- Understanding where user accounts, permissions, and policies live (CLI vs GUI) improves troubleshooting and auditing skills
+- Apple has modernized malware handling using background frameworks instead of visible apps
 
-# Create folders
-mkdir -p $WEEK_NAME/Screenshots
+---
 
-# Copy template Markdown to the new week folder and rename it
-cp Templates/Lab_Template.md $WEEK_NAME/${WEEK_NAME}_Recap.md
 
-# Confirm success
-echo "✅ Created scaffold for $WEEK_NAME:"
-echo "- $WEEK_NAME/${WEEK_NAME}_Recap.md"
-echo "- $WEEK_NAME/Screenshots/"
 
